@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 600px;
+  width: 800px;
 }
 
 .App-logo {
@@ -35,4 +37,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+textarea.form-control {
+  min-height: 120px;
+}
+form-template{
+  display: block;
+}
+.form-control{
+  display: block
+}
+
+#build-wrap::before{
+  content: 'Form Preview';
+  font-weight: 600;
+  text-decoration: underline;
+  margin: 10px 0px;
+  display: block;
+  text-align: center
+}
+
+#build-wrap{
+  border: 1px solid;
+  margin-top:20px;
+  padding:10px;
+  position: relative;
+}
+#fb-editor{
+  border: 1px dashed #999;
+  padding:10px
+}
+#close{
+  position: absolute;
+  top:10px;
+  left:10px;
+  color: red
+
 }
