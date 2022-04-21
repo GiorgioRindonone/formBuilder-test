@@ -7,6 +7,41 @@ import * as React from "react";
 require("jquery-ui-sortable");
 require("formBuilder");
 
+
+//test implementazione del reducer
+const initFormState = {
+    formData: {},
+    formCompiledData: {},
+    formMode: ""
+};
+
+function formReducer(state, action) {
+    //? gli passo action come argomento perchè poi nello switch lui lo usa e sa cosa fare
+    switch (action.type) {
+        case "initFormData":
+            return {
+                formData: action.data,
+                formMode: "form-builder" //init form data
+            };
+
+        case "upFormData":
+            return {
+                ...state,
+                formData: action.data,
+                formMode: "form-builder" //update form data
+            };
+        case "upFormCompiledData":
+            return {
+                ...state,
+                formCompiledData: action.data,
+                formMode: "form-builded" //update form data
+            };
+        default:
+            break;
+    }
+}
+
+
 const formData = [
     {
         "type": "header",
@@ -69,13 +104,11 @@ const formData = [
 
 ];
 
-
-
 function FormBuilder() {
     let formBuilder;
 
     const formBuilderRef = React.useRef();
-    
+
     const options = {
         disabledActionButtons: ['data', 'clear'],
         scrollToFieldOnAdd: false,
